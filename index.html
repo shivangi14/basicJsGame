@@ -128,6 +128,16 @@
 
 			document.addEventListener("keydown", keyDownHandler,false);		//listeners(here on when key is pressed)
 			document.addEventListener("keyup", keyUpHandler, false);		//when key is released
+			document.addEventListener("mousemove", mouseHandler, false);
+
+			function mouseHandler(e){
+				var relativeX = e.clientX - canvas.offsetLeft;		
+				if(relativeX > 0 && relativeX< canvas.width){
+					paddleX = relativeX - paddleWidth/2;
+				}
+			}
+			//e.clientX = horizontal mouse position in the viewport
+			//canvas.offsetLeft = distance between the left edge of the canvas and left edge of the viewport
 
 			function keyDownHandler(e){
 				if(e.keyCode == 39){
